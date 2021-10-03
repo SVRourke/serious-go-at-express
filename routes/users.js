@@ -1,9 +1,13 @@
-var express = require('express');
+var express = require("express");
 var router = express.Router();
 
-/* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
+const controller = require("../controllers/users");
+
+router.get("/", function (req, res, next) {
+  res.redirect("/users/new");
 });
+
+// Render New User Form
+router.route("/new").get(controller.new).post(controller.create);
 
 module.exports = router;
