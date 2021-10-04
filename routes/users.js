@@ -1,6 +1,6 @@
 var express = require("express");
-var router = express.Router();
-
+var router = express.Router({mergeParams: true});
+const listRouter = require("./lists");
 const controller = require("../controllers/users");
 
 router.get("/", function (req, res, next) {
@@ -9,5 +9,7 @@ router.get("/", function (req, res, next) {
 
 // Render New User Form
 router.route("/new").get(controller.new).post(controller.create);
+
+router.use("/:user_id/lists", listRouter);
 
 module.exports = router;
