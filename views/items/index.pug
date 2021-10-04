@@ -1,0 +1,10 @@
+h1= title
+
+form(method="post")
+    label(for="text") todo
+    input(type="text", name="text")
+    input(type="submit", value="Add Todo")
+
+ul
+    each item in items 
+        li= item.text 
