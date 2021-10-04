@@ -8,7 +8,10 @@ exports.usersTable = `
 exports.listsTable = `
     CREATE TABLE IF NOT EXISTS lists (
         list_id serial PRIMARY KEY,
-        title VARCHAR(50) NOT NULL
+        title VARCHAR(50) NOT NULL,
+        user_id INT NOT NULL,
+        FOREIGN KEY (user_id)
+            REFERENCES users (user_id)
     )`;
 
 exports.todosTable = `
