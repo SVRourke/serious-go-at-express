@@ -7,10 +7,11 @@ router.get("/", controller.index);
 router.post("/", controller.create);
 router.get("/new", controller.new).post(controller.create);
 
-router.route("/:tag_id/edit").get(controller.edit).post(controller.update);
+router.get("/:item_id/edit", controller.edit);
+router.patch("/:item_id/", controller.update);
 
-router.post("/:tag_id/toggle", controller.toggle);
+router.post("/:item_id/toggle", controller.toggle);
 
-router.delete("/:tag_id", controller.destroy);
+router.delete("/:item_id", controller.destroy);
 
 module.exports = router;
