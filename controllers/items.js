@@ -24,7 +24,7 @@ exports.index = async (req, res) => {
 
 // TODO: Create View
 exports.new = (req, res) => {
-  res.send("new Item form route");
+  res.render("items/new");
 };
 
 exports.create = async (req, res) => {
