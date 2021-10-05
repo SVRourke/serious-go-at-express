@@ -1,10 +1,12 @@
-h1= title
+extends ../layout
+block content
+  h1= title
 
-form(method="post")
+  form(method="post")
     label(for="text") todo
     input(type="text", name="text")
     input(type="submit", value="Add Todo")
 
-ul
+  ul
     each item in items 
-        li= item.text 
+      li= item.text 
