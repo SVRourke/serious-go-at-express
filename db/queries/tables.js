@@ -18,7 +18,9 @@ exports.todosTable = `
     CREATE TABLE IF NOT EXISTS todos (
         todo_id serial PRIMARY KEY,
         text VARCHAR(200) NOT NULL UNIQUE,
+        complete VARCHAR(2) NOT NULL,
         list_id INT NOT NULL,
         FOREIGN KEY (list_id)
             REFERENCES lists (list_id)
+        CONSTRAINT chk_Completion CHECK (complete IN ('a', 'b'))
     )`;
