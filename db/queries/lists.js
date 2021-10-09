@@ -9,6 +9,13 @@ exports.indexList = `
     WHERE user_id=$1
 `;
 
+exports.updateList = `
+    UPDATE lists
+    SET title = $2
+    WHERE list_id = $1
+    RETURNING *
+`;
+
 exports.deleteList = `
     DELETE FROM lists
     WHERE list_id=$1
